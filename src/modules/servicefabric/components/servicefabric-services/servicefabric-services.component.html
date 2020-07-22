@@ -1,0 +1,18 @@
+<p>servicefabric services:</p>
+<button (click)="onExportServices()">Export</button>
+<button (click)="onUploadServices()">Import</button>
+<input type="file" #fileUpload id="fileUpload" name="fileUpload" multiple="single" accept="*.json" style="display:none;" />
+<table>
+    <tr>
+        <th>services</th>
+        <th>instanceCount</th>
+        <th>placementConstraints</th>
+    </tr>
+    
+    <tr *ngFor="let service of services">
+        <td>{{service.serviceTypeName}}</td>
+        <td>{{service.instanceCount}}</td>
+        <td> {{service.placementConstraints}}</td>
+    </tr>
+</table>
+

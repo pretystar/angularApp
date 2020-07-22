@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let svc of svclist">
+        <a [style.color]="svc.healthState == 1 ? 'green': 'red'">
+            {{svc.typeName}}, version {{svc.manifestVersion}}
+        </a>
+    </li>
+</ul>

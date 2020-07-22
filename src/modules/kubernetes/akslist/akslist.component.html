@@ -1,0 +1,10 @@
+
+<!-- <div *ngIf="isAuthorized"> -->
+    <p>Azure Kubernetes Cluster List:</p>
+    <ul *ngIf="aksList.length">
+    <li *ngFor="let aks of aksList">
+        <a [routerLink]="[aks]">{{aks}}</a>
+        <!-- <a [routerLink]="['/aks/details/']" [state]="aks">{{aks}}</a> -->
+    </li>
+</ul>
+<!-- </div> -->

@@ -1,0 +1,2 @@
+<a class="nav-link" *ngIf="!isAuthenticated$" (click)="login()">{{ 'LOGIN' | translate:lang }}</a>
+<router-outlet></router-outlet>

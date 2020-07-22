@@ -1,0 +1,41 @@
+<!-- <div *ngIf="isAuthorized">
+    <a>{{aksid}} Azure Kubernetes Service namespaces:</a>
+    <li *ngFor="let item of aksns.items" >
+        <a (click)="ListNamespacedPod(item.metadata.name)">{{item.metadata.name}}</a>
+    </li>
+
+</div> -->
+<div>
+    details:
+    <div *ngFor="let nodemetric of nodemetrics.items" class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{nodemetric.metadata.name}}
+            </h5>
+        </div>
+
+        <p class="card-text">
+            CPU: {{nodemetric.usage.cpu}}, Memory: {{nodemetric.usage.memory}}
+        </p>
+        <div class="card-body">
+            <!-- {{let podsInNode = pods.items.filter({i => i.spec.nodeName == item.metadata.name})}} -->
+            <!-- <li *ngFor="let pod of podsInNode">
+                <ng-container *ng-if="pod.spec.nodeName == item.metadata.name">
+                    <a>{{pod.metadata.name}}</a>
+                </ng-container>
+                
+            </li> -->
+            <li *ngFor="let podmetric of podmetrics.items">
+                {{podmetric}}
+                {{podmetric.metadata.name}}, CPU: {{podmetric.containers.usage.cpu}}, Memory:
+                {{podmetric.containers.usage.memory}}
+            </li>
+        </div>
+    </div>
+
+</div>
+<!-- <div>
+    <li *ngFor="let resouceitem of resourcesInNS.items" >
+        <a>{{resouceitem.metadata.name}}</a>
+    </li>
+</div> -->

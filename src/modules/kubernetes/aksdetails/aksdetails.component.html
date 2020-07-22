@@ -1,0 +1,55 @@
+<!-- <div *ngIf="isAuthorized">
+    <a>{{aksid}} Azure Kubernetes Service namespaces:</a>
+    <li *ngFor="let item of aksns.items" >
+        <a (click)="ListNamespacedPod(item.metadata.name)">{{item.metadata.name}}</a>
+    </li>
+
+</div> -->
+<div>
+    details:
+
+    <div *ngIf="nodemetrics.items">
+        <!-- *ngIf="ratings[i]" -->
+        <div *ngFor="let nodemetric of nodemetrics.items" class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    {{nodemetric.metadata.name}}
+                </h5>
+            </div>
+
+            <p class="card-text">
+                CPU: {{nodemetric.usage.cpu}}, Memory: {{nodemetric.usage.memory}}
+            </p>
+            <div class="card-body">
+                <div *ngIf="pods.items">
+                    <ul *ngFor="let pod of pods.items">
+                        
+                   
+                        <li *ngIf="pod.spec.nodeName === nodemetric.metadata.name">
+                            Podname: {{  pod.metadata.name }}
+                            <!-- <div *ngif="PodInNode(pod.spec.nodeName,nodemetric.metadata.name)"> -->
+                                <!-- nodeName in pod.spec: {{pod.spec.nodeName === nodemetric.metadata.name}} -->
+                                <div *ngIf="podmetrics.items">
+                                    <div *ngFor="let podmetric of podmetrics.items">
+                                    <!-- <li  > -->
+                                        <div *ngIf="podmetric.metadata.name === pod.metadata.name">
+                                            
+                                            <a *ngFor="let container of podmetric.containers">
+                                                Container: {{container.name}},{{container.usage.cpu}}, Memory: {{container.usage.memory}}
+                                            </a>
+                                        </div>
+                                    <!-- </li> -->
+                                    </div>
+                                </div>
+                            </li>
+                    </ul>
+               
+                </div>
+               
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

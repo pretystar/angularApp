@@ -1,0 +1,59 @@
+<p>servicefabric apps</p>
+<!-- <a>health: {{apps.map(app => app.healthState).filter(x => x===1).length}}</a>
+<a>Unhealth{{apps.map(app => app.healthState).filter(x => x1==1).length}}</a> -->
+<canvas #myPieChart></canvas>
+<mat-tab-group>
+  <mat-tab label="Statistic"> 
+    <ngx-charts-pie-chart
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="healthstatistic"
+      [gradient]="gradient"
+      [legend]="showLegend"
+      [legendPosition]="legendPosition"
+      [labels]="showLabels"
+      [doughnut]="isDoughnut"
+      >
+    </ngx-charts-pie-chart>
+  </mat-tab>
+  <mat-tab label="Apps"> 
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let app of apps; let indexofapp=index" (opened)="expand(app.typeName)"
+                        (closed)="panelOpenState = false" >
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <a [style.color]="app.healthState == 1 ? 'green': 'red'" >{{ app.typeName }}</a>
+          </mat-panel-title>
+          <mat-panel-description>
+            version: {{app.typeVersion}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- <p id="svc_{{app.typeName}}">I'm visible because I am open</p> -->
+        <app-servicefabric-svclist [id]="id" [appname]="app.typeName"></app-servicefabric-svclist>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <!-- <div class="accordion" id="accordionExample">
+      <div class="card" *ngFor="let app of apps; let i = index">
+        <div class="card-header" id="card-header-{{i}}">
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#{{app.typeName}}" aria-expanded="false" aria-controls="{{app.typeName}}">
+              <a [style.color]="app.healthState == 1 ? 'green': 'red'" (click)="expand($event)">{{ app.typeName }}</a>, version: {{app.typeVersion}}
+            </button>
+          </h2>
+        </div>
+    
+        <div id="{{app.typeName}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+          <div class="card-body">
+            cardbody
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- <ul>
+       <li *ngFor="let app of apps">
+        <a href="" [style.color]="app.healthState == 1 ? 'green': 'red'">{{ app.typeName }}</a>
+    </li>
+    </ul> -->
+  </mat-tab>
+</mat-tab-group>
+<!-- <app-servicefabric-services [id]="id"></app-servicefabric-services> -->

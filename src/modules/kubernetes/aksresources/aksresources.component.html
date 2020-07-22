@@ -1,0 +1,4 @@
+<p>{{aksid}} resources</p>
+<li *ngFor="let item of resourcesInNS.items">
+    <a [routerLink]="['/aks/',item.metadata.name]">{{item.metadata.name}}</a>
+    </li>

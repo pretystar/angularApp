@@ -1,0 +1,30 @@
+<div class="container">
+<!-- <mat-grid-list [cols]="4" [rowHeight]="fit" >
+    <mat-grid-tile colspan="1"> -->
+        <div class="row">
+        <div class="col-3">
+            <button (click)="downloadkubeconfig(aksid)">Download Kubeconfig</button>
+            <br />
+            <a>{{aksid}} Azure Kubernetes Service namespaces:</a>
+            <li *ngFor="let item of aksns.items">
+                <!-- <a (click)="ListNamespacedPod(item.metadata.name)">{{item.metadata.name}}</a> -->
+                <a (click)="onSelect(item.metadata.name)">{{item.metadata.name}}</a>
+            </li>
+
+        </div>
+    
+    <!-- </mat-grid-tile>
+    <mat-grid-tile colspan="3"> -->
+        <div *ngIf="selectedAksNS" class="col-9">
+            <app-aksresources [aksid]="aksid" [aksns]="selectedAksNS"></app-aksresources>
+        </div>
+    </div>
+    <!-- </mat-grid-tile>
+</mat-grid-list> -->
+
+<!-- <div>
+    <li *ngFor="let resouceitem of resourcesInNS.items" >
+        <a>{{resouceitem.metadata.name}}</a>
+    </li>
+</div> -->
+</div>

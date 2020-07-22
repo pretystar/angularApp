@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-center" >
+    <!-- <div class="row">
+        <div class="col"> -->
+            <button mat-button class="nav-link" (click)="login()">{{ 'LOGIN' }}</button>
+            <button mat-button class="nav-link" *ngIf="!isAuthenticated$" (click)="login()">{{ 'LOGIN' }}</button>
+            <a *ngIf="isAuthenticated$">Welcome, {{userData$.name}}</a>
+        <!-- </div>
+    </div> -->
+</div>
